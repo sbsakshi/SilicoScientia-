@@ -253,8 +253,8 @@ const page=()=> {
                       step="0.01" 
                       value={moderateThreshold} 
                       onChange={(e) => setModerateThreshold(parseFloat(e.target.value))}
-                      className="flex h-10 w-20 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    />
+                      className="flex h-10 w-20 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 :cursor-not-allowed disabled:opacity-50"
+                    />disabled
                     <CustomSlider 
                       value={moderateThreshold} 
                       onChange={setModerateThreshold} 
