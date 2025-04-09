@@ -47,7 +47,7 @@ export default function LigandInteraction() {
       <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center pb-2">
           <CardTitle className="text-2xl flex items-center justify-center gap-2">
-            <span className="bg-yellow-300 px-2 py-0.5 text-black">Ligand</span> Interaction Tool
+            Ligand Interaction Tool
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-2">
             Analyze protein-ligand interactions with ease. Upload PDB files or enter PDB IDs to get started.
@@ -90,7 +90,7 @@ export default function LigandInteraction() {
             <div className="mt-6">
               <Button
                 onClick={handleRunAnalysis}
-                className="w-full bg-[#006F7F] hover:bg-[#006F7F]/90"
+                className="w-full bg-[#006F7F] hover:bg-[#006F7F]/90 text-white"
                 disabled={isLoading}
               >
                 {isLoading ? (

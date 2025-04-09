@@ -44,11 +44,12 @@ export default function PostDocking() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">POST DOCKING ANALYSIS</CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
+        <div className="flex justify-center">
+        <CardContent className="p-6 w-3/4">
           <div className="grid gap-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -75,7 +76,7 @@ export default function PostDocking() {
                     onChange={(e) => setJobId(e.target.value)}
                     className="bg-[#CEE6F1]"
                   />
-                  <Button onClick={handleFetchJob} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+                  <Button onClick={handleFetchJob} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                     <Search className="h-4 w-4" /> Fetch Job
                   </Button>
                 </div>
@@ -122,7 +123,7 @@ export default function PostDocking() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Sort Results</label>
+                  <label className="block text-sm font-medium mb-2 ">Sort Results</label>
                   <Select value={sortBy} onValueChange={setSortBy}>
                     <SelectTrigger className="bg-[#CEE6F1]">
                       <SelectValue placeholder="Sort by" />
@@ -138,13 +139,14 @@ export default function PostDocking() {
               </div>
 
               <div className="flex justify-end">
-                <Button onClick={handleAnalyzeResults} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+                <Button onClick={handleAnalyzeResults} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                   <ArrowRight className="mr-2 h-4 w-4" /> Analyze Results
                 </Button>
               </div>
             </div>
           </div>
         </CardContent>
+        </div>
       </Card>
 
       <div className="mt-8">

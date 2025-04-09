@@ -103,13 +103,13 @@ export default function PocketFinder() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg mb-8">
+      <Card className="  backdrop-blur-sm border-none shadow-lg mb-8">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">POCKET FINDER</CardTitle>
         </CardHeader>
         <CardContent className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            <div className=" justify-center">
               <h2 className="text-xl font-bold mb-4">Upload Protein</h2>
               <FileUpload
                 label="Upload your PDB Files"
@@ -169,7 +169,7 @@ export default function PocketFinder() {
                   <div className="mt-4 flex justify-end">
                     <Button
                       onClick={handleFindPockets}
-                      className="bg-[#006F7F] hover:bg-[#006F7F]/90"
+                      className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -243,7 +243,7 @@ export default function PocketFinder() {
       </Card>
 
       {showResults && (
-        <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+        <Card className="  backdrop-blur-sm border-none shadow-lg">
           <CardHeader className="border-b pb-4">
             <div className="flex justify-between items-center">
               <CardTitle>Pocket Analysis Results</CardTitle>

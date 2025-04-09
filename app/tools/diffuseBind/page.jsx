@@ -46,11 +46,12 @@ export default function DiffuseBind() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">DIFFUSE BIND TOOL</CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
+        <div className="flex justify-center">
+        <CardContent className="p-6 w-3/4">
           <div className="mb-6">
             <p className="text-center text-sm">
               State of the art method for protein-ligand docking using the diffusion model without requiring a known
@@ -61,49 +62,52 @@ export default function DiffuseBind() {
           <div className="grid gap-6">
             <div>
               <label className="block text-sm font-medium mb-2">Job Name</label>
-              <Input placeholder="Enter your job ID" className="bg-[#CEE6F1]" />
+              <Input placeholder="Enter your job ID" className="bg-white" />
             </div>
-
+            <div className="flex justify-center">
             <FileUpload
               label="Protein File"
               description="No protein file uploaded"
               onFileSelect={(file) => setProteinFile(file)}
               accept=".pdb"
             />
-
+            </div>
+            <div className="flex justify-center">
             <FileUpload
               label="Ligand File"
               description="No ligand file uploaded"
               onFileSelect={(file) => setLigandFile(file)}
               accept=".mol,.mol2,.sdf"
             />
-
+            </div>
             <div className="flex justify-end">
               <Button
                 onClick={handleRunPrediction}
-                className="bg-[#006F7F] hover:bg-[#006F7F]/90"
+                className="bg-[#006F7F] text-white hover:bg-[#006F7F]/90"
                 disabled={jobStatus === "running"}
               >
-                <Play className="mr-2 h-4 w-4" /> Run Prediction
+                <Play className="mr-2 h-4 w-4 " /> Run Prediction
               </Button>
             </div>
           </div>
         </CardContent>
+        </div>
       </Card>
 
       <div className="mt-8">
-        <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+        <Card className="  backdrop-blur-sm border-none shadow-lg">
           <CardHeader className="text-center border-b pb-4">
             <CardTitle className="text-2xl">RESULT</CardTitle>
           </CardHeader>
-          <CardContent className="p-6">
+          <div className="flex justify-center">
+          <CardContent className="p-6 w-3/4">
             <div className="grid gap-6">
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 ">
                 <Input
                   placeholder="Enter your Job ID"
                   value={jobId}
                   onChange={(e) => setJobId(e.target.value)}
-                  className="bg-[#CEE6F1]"
+                  className="bg-white"
                 />
                 <Button onClick={handleCheckResult} variant="outline" className="border-[#006F7F] text-[#006F7F]">
                   <Search className="h-4 w-4" /> Check Result
@@ -168,6 +172,7 @@ export default function DiffuseBind() {
               )}
             </div>
           </CardContent>
+          </div>
         </Card>
       </div>
     </div>

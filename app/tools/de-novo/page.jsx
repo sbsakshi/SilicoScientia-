@@ -39,31 +39,33 @@ export default function DeNovo() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">De novo molecule Generation</CardTitle>
           <p className="text-sm text-muted-foreground">Generate novel drug molecules using advanced AI Models</p>
         </CardHeader>
-        <CardContent className="p-6">
+        <div className="flex justify-center">
+        <CardContent className="p-6 w-3/4">
           <div className="mb-6">
             <h2 className="text-xl font-bold mb-1">Input Molecules</h2>
             <p className="text-sm text-muted-foreground">Generate molecules from your dataset</p>
           </div>
 
           <div className="grid gap-6">
+            <div className="flex justify-center">
             <FileUpload
               label="Upload your CSV Files"
               description="Please provide a set of Molecules"
               onFileSelect={handleFileSelect}
               accept=".csv,.txt,.sdf"
             />
-
+            </div>
             <div className="flex justify-between items-center">
               <Button variant="link" onClick={handleDownloadSample} className="text-[#006F7F]">
                 <Download className="mr-2 h-4 w-4" /> Download Sample Files
               </Button>
 
-              <Button onClick={handleRunGenerator} className="bg-[#006F7F] hover:bg-[#006F7F]/90" disabled={isLoading}>
+              <Button onClick={handleRunGenerator} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white" disabled={isLoading}>
                 {isLoading ? (
                   <>
                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-b-transparent"></div>
@@ -86,13 +88,15 @@ export default function DeNovo() {
             )}
           </div>
         </CardContent>
+        </div>
       </Card>
 
       {isCompleted && (
-        <Card className="mt-8 bg-white/80 backdrop-blur-sm border-none shadow-lg">
+        <Card className="mt-8   backdrop-blur-sm border-none shadow-lg">
           <CardHeader>
             <CardTitle>Generated Molecules</CardTitle>
           </CardHeader>
+        
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[1, 2, 3, 4, 5, 6].map((index) => (
@@ -112,6 +116,7 @@ export default function DeNovo() {
               ))}
             </div>
           </CardContent>
+          
         </Card>
       )}
     </div>

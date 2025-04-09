@@ -239,64 +239,9 @@ export default function SilicoXploreTools() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col">
       {/* Navigation Bar */}
-      <header className="bg-[#1d4d40] text-white p-4 flex items-center justify-between sticky top-0 z-20 shadow-md">
-        <div className="flex items-center space-x-2">
-          <Image
-            src="/placeholder.svg?height=30&width=30"
-            alt="SilicoXplore Logo"
-            width={30}
-            height={30}
-            className="mr-2"
-          />
-          <span className="text-xl font-semibold">SilicoXplore</span>
-        </div>
-
-        <div className="hidden md:flex items-center space-x-6">
-          <a href="#" className="hover:underline">
-            My Workflow
-          </a>
-          <a href="#" className="hover:underline">
-            My Result
-          </a>
-        </div>
-
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon" className="text-white hover:bg-[#2a5d50] transition-colors relative">
-            <Bookmark className="h-5 w-5" />
-            {bookmarkedTools.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                {bookmarkedTools.length}
-              </span>
-            )}
-          </Button>
-          <div className="relative">
-            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-              1
-            </span>
-            <Button variant="ghost" size="icon" className="text-white hover:bg-[#2a5d50] transition-colors">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-              </svg>
-            </Button>
-          </div>
-          <div className="h-8 w-8 rounded-full bg-[#e6a48b] flex items-center justify-center text-white cursor-pointer hover:opacity-90 transition-opacity">
-            <span>👤</span>
-          </div>
-        </div>
-      </header>
+      
 
       {/* Main Content */}
       <main className="flex-1 px-4 py-8 md:px-8 lg:px-16">
@@ -468,7 +413,7 @@ export default function SilicoXploreTools() {
               displayedTools.map((tool) => (
                 <Card
                   key={tool.id}
-                  className="overflow-hidden relative p-6 flex flex-col shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-1 hover:bg-gray-50 cursor-pointer active:bg-gray-100 active:scale-[0.99]"
+                  className="overflow-hidden relative p-6 flex flex-col shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-1  cursor-pointer active:bg-gray-100 active:scale-[0.99]"
                   onClick={() => handleCardClick(tool.id)}
                 >
                   <div className="flex justify-between items-start mb-4">

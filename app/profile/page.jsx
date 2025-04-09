@@ -17,7 +17,7 @@ export default function Profile() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="flex flex-row items-center justify-between border-b pb-4">
           <CardTitle className="text-2xl">Profile Settings</CardTitle>
           <Button variant="destructive" size="sm" className="bg-red-500 hover:bg-red-600">

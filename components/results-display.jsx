@@ -12,7 +12,7 @@ export function ResultsDisplay({ title, results, isLoading = false }) {
 
   if (isLoading) {
     return (
-      <Card className="w-full bg-white/80 backdrop-blur-sm">
+      <Card className="w-full   backdrop-blur-sm">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
         </CardHeader>
@@ -28,7 +28,7 @@ export function ResultsDisplay({ title, results, isLoading = false }) {
   }
 
   return (
-    <Card className="w-full bg-white/80 backdrop-blur-sm">
+    <Card className="w-full   backdrop-blur-sm">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>{title}</CardTitle>
         <Button variant="outline" size="sm" onClick={() => setIsVisible(!isVisible)}>

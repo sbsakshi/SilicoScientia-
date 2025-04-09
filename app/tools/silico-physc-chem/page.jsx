@@ -38,7 +38,7 @@ export default function SilicoPhycChem() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">SILICO-PHYC-CHEM</CardTitle>
         </CardHeader>
@@ -49,12 +49,13 @@ export default function SilicoPhycChem() {
           </div>
 
           <div className="grid gap-6">
+            <div className="flex justify-center">
             <FileUpload
               label="Upload your CSV Files"
               description="Please provide a set of molecules"
               onFileSelect={(file) => setFile(file)}
             />
-
+            </div>
             <div>
               <label className="block text-sm font-medium mb-2">SMILES Input</label>
               <Input
@@ -66,7 +67,7 @@ export default function SilicoPhycChem() {
             </div>
 
             <div className="flex justify-end">
-              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                 <Play className="mr-2 h-4 w-4" /> Run Prediction
               </Button>
             </div>

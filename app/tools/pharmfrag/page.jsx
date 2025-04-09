@@ -38,7 +38,7 @@ const [results, setResults] = useState(null)
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className="  backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">PHARMFRAG</CardTitle>
         </CardHeader>
@@ -48,14 +48,15 @@ const [results, setResults] = useState(null)
           </div>
 
           <div className="grid gap-6">
+            <div className="flex justify-center">
             <FileUpload
               label="Upload your Query file"
               description="Please provide a set of query molecules"
               onFileSelect={(file) => setQueryFile(file)}
             />
-
+            </div>
             <div className="flex justify-end">
-              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                 <Play className="mr-2 h-4 w-4" /> Run Prediction
               </Button>
             </div>
@@ -67,7 +68,7 @@ const [results, setResults] = useState(null)
         <ResultsDisplay title="Pharmacophore Results" results={results} isLoading={isLoading} />
 
         {showViewer && (
-          <Card className="bg-white/80 backdrop-blur-sm">
+          <Card className="  backdrop-blur-sm">
             <CardHeader>
               <CardTitle>Pharmacophore Viewer</CardTitle>
             </CardHeader>

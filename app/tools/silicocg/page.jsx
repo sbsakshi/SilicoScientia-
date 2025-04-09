@@ -35,29 +35,32 @@ export default function Silicocg() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+    <div className="flex items-center justify-center min-h-screen">
+      <Card className="backdrop-blur-sm border-none shadow-lg w-full max-w-6xl">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">SILICOCG</CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
+        <div className="flex justify-center">
+        <CardContent className="p-6 w-3/4">
           <div className="grid gap-6">
-            <FileUpload
-              label="Upload your CSV Files"
-              description="Please provide a set of molecules"
-              onFileSelect={(file) => setFile(file)}
-            />
-
-            <div>
-              <label className="block text-sm font-medium mb-2">SMILES Input</label>
-              <Input
-                placeholder="Enter SMILES notation..."
-                value={smiles}
-                onChange={(e) => setSmiles(e.target.value)}
-                className="bg-[#CEE6F1]"
+            <div className="flex justify-center">
+              <FileUpload
+                label="Upload your CSV Files"
+                description="Please provide a set of molecules"
+                onFileSelect={(file) => setFile(file)}
               />
             </div>
-
+            <div>
+              <label className="block text-sm font-medium mb-2">SMILES Input</label>
+              <div className="flex justify-center">
+                <Input
+                  placeholder="Enter SMILES notation..."
+                  value={smiles}
+                  onChange={(e) => setSmiles(e.target.value)}
+                  className="bg-[#CEE6F1]"
+                />
+              </div>
+            </div>
             <div className="flex justify-between items-center">
               <label className="block text-sm font-medium">Number of Conformers to be generated for each state</label>
               <Select value={conformers} onValueChange={setConformers}>
@@ -74,7 +77,7 @@ export default function Silicocg() {
             </div>
 
             <div className="flex justify-end">
-              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                 <Play className="mr-2 h-4 w-4" /> Run Prediction
               </Button>
             </div>
@@ -119,6 +122,7 @@ export default function Silicocg() {
             </div>
           </div>
         </CardContent>
+        </div>
       </Card>
     </div>
   )

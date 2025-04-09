@@ -3,7 +3,7 @@ import React from 'react'
 const page = () => {
   return (
     <div className='container mx-auto px-4 py-8'> 
-    <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+    <Card className=" backdrop-blur-sm border-none shadow-lg">
             <CardHeader className="text-center border-b pb-4">
               <CardTitle className="text-2xl">Sketcher</CardTitle>
               <div className="bg-red-500 h-64 flex items-center justify-center">

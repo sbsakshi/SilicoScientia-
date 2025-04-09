@@ -43,11 +43,12 @@ const [results, setResults] = useState(null)
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Card className="bg-white/80 backdrop-blur-sm border-none shadow-lg">
+      <Card className=" backdrop-blur-sm border-none shadow-lg">
         <CardHeader className="text-center border-b pb-4">
           <CardTitle className="text-2xl">SIM SEARCH</CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
+        <div className="flex justify-center">
+        <CardContent className="p-6 w-3/4">
           <div className="mb-6 flex justify-between">
           <div>
             <h2 className="text-xl font-bold mb-1">Similarity Search</h2>
@@ -70,8 +71,8 @@ const [results, setResults] = useState(null)
           </div>
 
           <div className="grid gap-6">
-            <div className="flex flex-col md:flex-row justify-between gap-4">
-              <div className="w-full ">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+              <div className="w-full flex justify-center">
                 <FileUpload
                   label="Upload your Query file"
                   description="Please provide a set of query molecules"
@@ -80,24 +81,25 @@ const [results, setResults] = useState(null)
               </div>
               
             </div>
-
+            <div className="flex justify-center">
             <FileUpload
               label="Upload your Target file"
               description="Please provide a set of target molecules"
               onFileSelect={(file) => setTargetFile(file)}
             />
-
+            </div>
             <div className="flex justify-between items-center">
               <Button variant="link" onClick={handleDownloadSample} className="text-[#006F7F]">
                 Download Sample Files
               </Button>
 
-              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90">
+              <Button onClick={handleRunPrediction} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                 <Play className="mr-2 h-4 w-4" /> Run Prediction
               </Button>
             </div>
           </div>
         </CardContent>
+        </div>
       </Card>
 
       <div className="mt-8">
