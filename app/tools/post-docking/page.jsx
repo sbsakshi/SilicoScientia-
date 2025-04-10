@@ -55,7 +55,7 @@ export default function PostDocking() {
               <div>
                 <label className="block text-sm font-medium mb-2">Docking Tool</label>
                 <Select value={dockingTool} onValueChange={setDockingTool}>
-                  <SelectTrigger className="bg-[#CEE6F1]">
+                  <SelectTrigger className="bg-white">
                     <SelectValue placeholder="Select Docking Tool" />
                   </SelectTrigger>
                   <SelectContent>
@@ -74,7 +74,7 @@ export default function PostDocking() {
                     placeholder="Enter Job ID"
                     value={jobId}
                     onChange={(e) => setJobId(e.target.value)}
-                    className="bg-[#CEE6F1]"
+                    className="bg-white"
                   />
                   <Button onClick={handleFetchJob} className="bg-[#006F7F] hover:bg-[#006F7F]/90 text-white">
                     <Search className="h-4 w-4" /> Fetch Job
@@ -90,7 +90,7 @@ export default function PostDocking() {
                 <div>
                   <label className="block text-sm font-medium mb-2">Protein</label>
                   <div className="flex space-x-2">
-                    <Input placeholder="Choose a Protein Molecule" className="bg-[#CEE6F1]" readOnly />
+                    <Input placeholder="Choose a Protein Molecule" className="bg-white" readOnly />
                     <Button variant="outline" className="border-[#006F7F] text-[#006F7F]">
                       <Search className="h-4 w-4" />
                     </Button>
@@ -101,7 +101,7 @@ export default function PostDocking() {
                 <div>
                   <label className="block text-sm font-medium mb-2">Ligand</label>
                   <div className="flex space-x-2">
-                    <Input placeholder="Choose a Ligand Molecule" className="bg-[#CEE6F1]" readOnly />
+                    <Input placeholder="Choose a Ligand Molecule" className="bg-white" readOnly />
                     <Button variant="outline" className="border-[#006F7F] text-[#006F7F]">
                       <Search className="h-4 w-4" />
                     </Button>
@@ -117,7 +117,7 @@ export default function PostDocking() {
                     placeholder="Enter threshold value"
                     value={threshold}
                     onChange={(e) => setThreshold(e.target.value)}
-                    className="bg-[#CEE6F1]"
+                    className="bg-white"
                     type="number"
                   />
                 </div>
@@ -125,7 +125,7 @@ export default function PostDocking() {
                 <div>
                   <label className="block text-sm font-medium mb-2 ">Sort Results</label>
                   <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="bg-[#CEE6F1]">
+                    <SelectTrigger className="bg-white">
                       <SelectValue placeholder="Sort by" />
                     </SelectTrigger>
                     <SelectContent>

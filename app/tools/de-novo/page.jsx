@@ -102,7 +102,7 @@ export default function DeNovo() {
               {[1, 2, 3, 4, 5, 6].map((index) => (
                 <Card key={index} className="overflow-hidden">
                   <CardContent className="p-4">
-                    <div className="aspect-square bg-[#CEE6F1] rounded-md mb-2 flex items-center justify-center">
+                    <div className="aspect-square bg-white rounded-md mb-2 flex items-center justify-center">
                       <span className="text-sm text-muted-foreground">Molecule Structure {index}</span>
                     </div>
                     <div className="flex justify-between items-center">

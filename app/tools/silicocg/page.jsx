@@ -57,14 +57,14 @@ export default function Silicocg() {
                   placeholder="Enter SMILES notation..."
                   value={smiles}
                   onChange={(e) => setSmiles(e.target.value)}
-                  className="bg-[#CEE6F1]"
+                  className="bg-white"
                 />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <label className="block text-sm font-medium">Number of Conformers to be generated for each state</label>
               <Select value={conformers} onValueChange={setConformers}>
-                <SelectTrigger className="w-20 bg-[#CEE6F1]">
+                <SelectTrigger className="w-20 bg-white">
                   <SelectValue placeholder="10" />
                 </SelectTrigger>
                 <SelectContent>

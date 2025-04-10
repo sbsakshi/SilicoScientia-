@@ -57,7 +57,7 @@ const [results, setResults] = useState(null)
             <div className="w-full md:w-1/4">
                 <label className="block text-sm font-medium mb-2">Select Fingerprint Method</label>
                 <Select value={fingerprint} onValueChange={setFingerprint}>
-                  <SelectTrigger className="bg-[#CEE6F1]">
+                  <SelectTrigger className="bg-white">
                     <SelectValue placeholder="Select Fingerprint Method" />
                   </SelectTrigger>
                   <SelectContent>

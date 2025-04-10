@@ -73,7 +73,7 @@ const [results, setResults] = useState(null)
               <CardTitle>Pharmacophore Viewer</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center items-center p-4">
-              <div className="w-full h-64 md:h-80 bg-[#CEE6F1] rounded-lg flex items-center justify-center">
+              <div className="w-full h-64 md:h-80 bg-white rounded-lg flex items-center justify-center">
                 <Image
                   src="/placeholder.svg"
                   alt="Protein structure visualization"

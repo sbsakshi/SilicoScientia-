@@ -62,7 +62,7 @@ export default function SilicoPhycChem() {
                 placeholder="Enter SMILES notation..."
                 value={smiles}
                 onChange={(e) => setSmiles(e.target.value)}
-                className="bg-[#CEE6F1]"
+                className="bg-white"
               />
             </div>
 

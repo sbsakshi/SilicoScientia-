@@ -65,7 +65,7 @@ export default function ToxAI() {
                     placeholder="Enter SMILES notation..."
                     value={smiles}
                     onChange={(e) => setSmiles(e.target.value)}
-                    className="bg-[#CEE6F1]"
+                    className="bg-white"
                   />
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function ToxAI() {
                       step="0.01"
                       value={toxicThreshold}
                       onChange={(e) => setToxicThreshold(Number.parseFloat(e.target.value))}
-                      className="w-20 bg-[#CEE6F1]"
+                      className="w-20 bg-white"
                     />
                     <div className="flex-1">
                       <Slider
@@ -122,7 +122,7 @@ export default function ToxAI() {
                       step="0.01"
                       value={moderateThreshold}
                       onChange={(e) => setModerateThreshold(Number.parseFloat(e.target.value))}
-                      className="w-20 bg-[#CEE6F1]"
+                      className="w-20 bg-white"
                     />
                     <div className="flex-1">
                       <Slider
@@ -153,7 +153,7 @@ export default function ToxAI() {
                       step="0.01"
                       value={nonToxicThreshold}
                       onChange={(e) => setNonToxicThreshold(Number.parseFloat(e.target.value))}
-                      className="w-20 bg-[#CEE6F1]"
+                      className="w-20 bg-white"
                     />
                     <div className="flex-1">
                       <Slider
@@ -183,7 +183,7 @@ export default function ToxAI() {
                 <CardTitle>Molecule Sketcher</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="h-80 flex items-center justify-center border-2 border-dashed border-[#00B3DC]/50 rounded-lg bg-[#CEE6F1]/10">
+                <div className="h-80 flex items-center justify-center border-2 border-dashed border-[#00B3DC]/50 rounded-lg bg-white/10">
                   <div className="text-center">
                     <Settings className="h-12 w-12 mx-auto text-[#006F7F] mb-4" />
                     <p className="text-muted-foreground">Interactive Molecule Sketcher</p>

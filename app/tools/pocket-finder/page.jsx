@@ -120,7 +120,7 @@ export default function PocketFinder() {
 
               {file && (
                 <div className="mt-4">
-                  <div className="flex items-center justify-between p-3 bg-[#CEE6F1]/50 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-md bg-[#006F7F] text-white flex items-center justify-center">
                         <FileCode className="h-5 w-5" />
@@ -148,7 +148,7 @@ export default function PocketFinder() {
               {file && (
                 <div className="mt-6">
                   <h3 className="text-lg font-medium mb-3">Select Pockets</h3>
-                  <div className="space-y-3 bg-[#CEE6F1]/30 p-4 rounded-lg">
+                  <div className="space-y-3 bg-white/30 p-4 rounded-lg">
                     {proteinData["protein_structure_1"].pockets.map((pocket) => (
                       <div key={pocket.id} className="flex items-center space-x-2">
                         <Checkbox
@@ -191,7 +191,7 @@ export default function PocketFinder() {
             <div>
               <h2 className="text-xl font-bold mb-4">Protein Visualization</h2>
               <div className="border-2 border-[#00B3DC]/30 rounded-lg overflow-hidden">
-                <div className="h-[300px] bg-[#CEE6F1]/20 flex items-center justify-center">
+                <div className="h-[300px] bg-white/20 flex items-center justify-center">
                   {!file ? (
                     <div className="text-center text-muted-foreground">
                       <Upload className="h-12 w-12 mx-auto mb-2 opacity-50" />
@@ -207,7 +207,7 @@ export default function PocketFinder() {
                 </div>
 
                 {file && (
-                  <div className="bg-[#CEE6F1]/30 p-3 border-t border-[#00B3DC]/30 flex justify-between items-center">
+                  <div className="bg-white/30 p-3 border-t border-[#00B3DC]/30 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                       <Button variant="outline" size="sm" className="h-8 text-xs">
                         <RefreshCw className="h-3.5 w-3.5 mr-1" /> Reset
@@ -223,7 +223,7 @@ export default function PocketFinder() {
                     <div className="flex items-center gap-2">
                       <span className="text-sm">Representation:</span>
                       <Select defaultValue="cartoon">
-                        <SelectTrigger className="w-[120px] h-8 bg-[#CEE6F1]">
+                        <SelectTrigger className="w-[120px] h-8 bg-white">
                           <SelectValue placeholder="Select view" />
                         </SelectTrigger>
                         <SelectContent>
@@ -256,7 +256,7 @@ export default function PocketFinder() {
             <div className="rounded-md border overflow-x-auto">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-[#CEE6F1]/30">
+                  <TableRow className="bg-white/30">
                     <TableHead className="font-medium">Pocket ID</TableHead>
                     <TableHead className="font-medium">Pocket Score</TableHead>
                     <TableHead className="font-medium">Drug Score</TableHead>
@@ -268,7 +268,7 @@ export default function PocketFinder() {
                 </TableHeader>
                 <TableBody>
                   {proteinData["protein_structure_1"].pockets.map((pocket) => (
-                    <TableRow key={pocket.id} className="hover:bg-[#CEE6F1]/10">
+                    <TableRow key={pocket.id} className="hover:bg-white/10">
                       <TableCell className="font-medium">{pocket.id}</TableCell>
                       <TableCell>{pocket.score.toFixed(4)}</TableCell>
                       <TableCell>{pocket.drugScore.toFixed(4)}</TableCell>
@@ -285,13 +285,13 @@ export default function PocketFinder() {
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium mb-3">Pocket Properties</h3>
-                <div className="bg-[#CEE6F1]/20 p-4 rounded-lg h-[200px] flex items-center justify-center">
+                <div className="bg-white/20 p-4 rounded-lg h-[200px] flex items-center justify-center">
                   <p className="text-muted-foreground">Select a pocket to view detailed properties</p>
                 </div>
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-3">Binding Site Analysis</h3>
-                <div className="bg-[#CEE6F1]/20 p-4 rounded-lg h-[200px] flex items-center justify-center">
+                <div className="bg-white/20 p-4 rounded-lg h-[200px] flex items-center justify-center">
                   <p className="text-muted-foreground">Select a pocket to view binding site analysis</p>
                 </div>
               </div>

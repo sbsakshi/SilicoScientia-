@@ -64,13 +64,13 @@ export default function PharmaPrediction() {
             {/* Left sidebar */}
             <div className="lg:col-span-1">
               <div className="relative mb-4">
-                <Input type="text" placeholder="Search molecules..." className="pl-9 bg-[#CEE6F1]" />
+                <Input type="text" placeholder="Search molecules..." className="pl-9 bg-white" />
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
               </div>
 
               <div className="border-t border-gray-100 pt-3">
                 <div
-                  className="flex items-center p-2 bg-[#CEE6F1]/50 rounded-md border border-[#00B3DC]/30 cursor-pointer"
+                  className="flex items-center p-2 bg-white/50 rounded-md border border-[#00B3DC]/30 cursor-pointer"
                   onClick={() =>
                     setSelectedMolecule({
                       id: "a-123",
@@ -108,7 +108,7 @@ export default function PharmaPrediction() {
                   <h3 className="text-lg font-medium mb-3">SMILES Input</h3>
                   <Textarea
                     placeholder="Enter SMILES notation..."
-                    className="bg-[#CEE6F1]"
+                    className="bg-white"
                     value={smilesInput}
                     onChange={(e) => setSmilesInput(e.target.value)}
                   />
@@ -135,7 +135,7 @@ export default function PharmaPrediction() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-[#006F7F] text-[#006F7F] hover:bg-[#CEE6F1]/20 h-14 text-base"
+                  className="border-[#006F7F] text-[#006F7F] hover:bg-white/20 h-14 text-base"
                 >
                   <Download className="mr-2 h-5 w-5" /> Download
                 </Button>
@@ -151,7 +151,7 @@ export default function PharmaPrediction() {
                       <div>
                         <h3 className="text-lg font-medium mb-2">Absorption</h3>
                         <div className="space-y-2">
-                          <div className="flex justify-between items-center p-2 bg-[#CEE6F1]/20 rounded">
+                          <div className="flex justify-between items-center p-2 bg-white/20 rounded">
                             <span>Intestinal Absorption</span>
                             <span
                               className={`px-2 py-0.5 rounded text-sm ${
@@ -163,7 +163,7 @@ export default function PharmaPrediction() {
                               {results.absorption.intestinal.value.toFixed(4)}
                             </span>
                           </div>
-                          <div className="flex justify-between items-center p-2 bg-[#CEE6F1]/20 rounded">
+                          <div className="flex justify-between items-center p-2 bg-white/20 rounded">
                             <span>Caco-2 Permeability</span>
                             <span
                               className={`px-2 py-0.5 rounded text-sm ${
@@ -180,7 +180,7 @@ export default function PharmaPrediction() {
                       <div>
                         <h3 className="text-lg font-medium mb-2">Distribution</h3>
                         <div className="space-y-2">
-                          <div className="flex justify-between items-center p-2 bg-[#CEE6F1]/20 rounded">
+                          <div className="flex justify-between items-center p-2 bg-white/20 rounded">
                             <span>Blood-Brain Barrier</span>
                             <span
                               className={`px-2 py-0.5 rounded text-sm ${
@@ -192,7 +192,7 @@ export default function PharmaPrediction() {
                               {results.distribution.bbb.value.toFixed(4)}
                             </span>
                           </div>
-                          <div className="flex justify-between items-center p-2 bg-[#CEE6F1]/20 rounded">
+                          <div className="flex justify-between items-center p-2 bg-white/20 rounded">
                             <span>Plasma Protein Binding</span>
                             <span
                               className={`px-2 py-0.5 rounded text-sm ${

@@ -83,7 +83,7 @@ export default function LigandInteraction() {
                   placeholder="Enter PDB IDs (space-separated)"
                   value={pdbIds}
                   onChange={(e) => setPdbIds(e.target.value)}
-                  className="bg-[#CEE6F1]"
+                  className="bg-white"
                 />
               </div>
             </TabsContent>

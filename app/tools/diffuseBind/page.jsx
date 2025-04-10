@@ -130,7 +130,7 @@ export default function DiffuseBind() {
 
                   <div className="mt-4">
                     <h3 className="text-lg font-medium mb-2">Output Files</h3>
-                    <div className="flex justify-between items-center p-3 bg-[#CEE6F1]/50 rounded-md">
+                    <div className="flex justify-between items-center p-3 bg-white/50 rounded-md">
                       <span>results_final.zip</span>
                       <Button variant="ghost" size="sm">
                         <Download className="h-4 w-4 mr-1" /> Download
@@ -141,7 +141,7 @@ export default function DiffuseBind() {
                   <div className="mt-4">
                     <h3 className="text-lg font-medium mb-2">Ranked Samples</h3>
                     <Select value={selectedSample} onValueChange={setSelectedSample}>
-                      <SelectTrigger className="bg-[#CEE6F1]">
+                      <SelectTrigger className="bg-white">
                         <SelectValue placeholder="Select a sample" />
                       </SelectTrigger>
                       <SelectContent>
@@ -157,13 +157,13 @@ export default function DiffuseBind() {
                   <div className="mt-4">
                     <h3 className="text-lg font-medium mb-2">Folder Contents</h3>
                     <div className="space-y-2">
-                      <div className="p-2 bg-[#CEE6F1]/30 rounded-md flex items-center">
+                      <div className="p-2 bg-white/30 rounded-md flex items-center">
                         <span className="text-sm">document1.txt</span>
                       </div>
-                      <div className="p-2 bg-[#CEE6F1]/30 rounded-md flex items-center">
+                      <div className="p-2 bg-white/30 rounded-md flex items-center">
                         <span className="text-sm">document2.txt</span>
                       </div>
-                      <div className="p-2 bg-[#CEE6F1]/30 rounded-md flex items-center">
+                      <div className="p-2 bg-white/30 rounded-md flex items-center">
                         <span className="text-sm">document3.txt</span>
                       </div>
                     </div>

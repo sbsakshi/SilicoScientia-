@@ -48,12 +48,12 @@ export default function Profile() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Username</label>
-                  <Input defaultValue="@sarahjohnson" className="bg-[#CEE6F1]" />
+                  <Input defaultValue="@sarahjohnson" className="bg-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Country</label>
                   <Select defaultValue="us">
-                    <SelectTrigger className="bg-[#CEE6F1]">
+                    <SelectTrigger className="bg-white">
                       <SelectValue placeholder="Select country" />
                     </SelectTrigger>
                     <SelectContent>
@@ -69,12 +69,12 @@ export default function Profile() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input defaultValue="sarah.johnson@research.med" className="bg-[#CEE6F1]" />
+                  <Input defaultValue="sarah.johnson@research.med" className="bg-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Gender</label>
                   <Select defaultValue="female">
-                    <SelectTrigger className="bg-[#CEE6F1]">
+                    <SelectTrigger className="bg-white">
                       <SelectValue placeholder="Select gender" />
                     </SelectTrigger>
                     <SelectContent>
@@ -90,13 +90,13 @@ export default function Profile() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Phone</label>
-                  <Input defaultValue="+1 (555) 123-4567" className="bg-[#CEE6F1]" />
+                  <Input defaultValue="+1 (555) 123-4567" className="bg-white" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Date of Birth</label>
                   <Popover>
                     <PopoverTrigger asChild>
-                      <Button variant="outline" className="w-full justify-start text-left font-normal bg-[#CEE6F1]">
+                      <Button variant="outline" className="w-full justify-start text-left font-normal bg-white">
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         {date ? format(date, "PPP") : <span>Pick a date</span>}
                       </Button>
@@ -111,7 +111,7 @@ export default function Profile() {
               <div>
                 <label className="block text-sm font-medium mb-2">Bio</label>
                 <Textarea
-                  className="min-h-[100px] bg-[#CEE6F1]"
+                  className="min-h-[100px] bg-white"
                   defaultValue="Dedicated medical researcher with 10+ years of experience in pharmaceutical development and clinical trials. Passionate about advancing healthcare through innovative research methodologies."
                 />
               </div>
@@ -119,13 +119,13 @@ export default function Profile() {
               <div>
                 <h3 className="text-lg font-medium mb-4">Social Links</h3>
                 <div className="flex gap-2">
-                  {/* <Button variant="outline" size="icon" className="rounded-full bg-[#CEE6F1]">
+                  {/* <Button variant="outline" size="icon" className="rounded-full bg-white">
                     <Linkedin className="h-4 w-4 text-[#0077B5]" />
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full bg-[#CEE6F1]">
+                  <Button variant="outline" size="icon" className="rounded-full bg-white">
                     <Twitter className="h-4 w-4 text-[#1DA1F2]" />
                   </Button> */}
-                  <Button variant="outline" size="icon" className="rounded-full bg-[#CEE6F1]">
+                  <Button variant="outline" size="icon" className="rounded-full bg-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
