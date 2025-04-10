@@ -217,7 +217,7 @@ export default function MoleculeConverter() {
                     <div className="flex space-x-4">
                       <div className="w-2/3">
                         <Select value={outputFormat} onValueChange={setOutputFormat}>
-                          <SelectTrigger className="bg-[#CEE6F1]">
+                          <SelectTrigger className="bg-white">
                             <SelectValue placeholder="Choose Output Format" />
                           </SelectTrigger>
                           <SelectContent>
@@ -263,7 +263,7 @@ export default function MoleculeConverter() {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="add-hydrogen" checked={addHydrogen} onCheckedChange={setAddHydrogen} />
+                        <Checkbox id="add-hydrogen" checked={addHydrogen} onCheckedChange={setAddHydrogen} className="bg-gray-300"/>
                         <label
                           htmlFor="add-hydrogen"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -272,7 +272,7 @@ export default function MoleculeConverter() {
                         </label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="delete-hydrogen" checked={deleteHydrogen} onCheckedChange={setDeleteHydrogen} />
+                        <Checkbox id="delete-hydrogen" checked={deleteHydrogen} onCheckedChange={setDeleteHydrogen} className="bg-gray-300"/>
                         <label
                           htmlFor="delete-hydrogen"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -281,7 +281,7 @@ export default function MoleculeConverter() {
                         </label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="remove-salt" checked={removeSalt} onCheckedChange={setRemoveSalt} />
+                        <Checkbox id="remove-salt" checked={removeSalt} onCheckedChange={setRemoveSalt} className="bg-gray-300"/>
                         <label
                           htmlFor="remove-salt"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -294,6 +294,7 @@ export default function MoleculeConverter() {
                           id="remove-duplicate"
                           checked={removeDuplicate}
                           onCheckedChange={setRemoveDuplicate}
+                          className="bg-gray-300"
                         />
                         <label
                           htmlFor="remove-duplicate"
@@ -313,7 +314,7 @@ export default function MoleculeConverter() {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="generate-3d" checked={generate3D} onCheckedChange={setGenerate3D} />
+                        <Checkbox id="generate-3d" checked={generate3D} onCheckedChange={setGenerate3D} className="bg-gray-300"/>
                         <label
                           htmlFor="generate-3d"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -322,7 +323,7 @@ export default function MoleculeConverter() {
                         </label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="generate-2d" checked={generate2D} onCheckedChange={setGenerate2D} />
+                        <Checkbox id="generate-2d" checked={generate2D} onCheckedChange={setGenerate2D} className="bg-gray-300"/>
                         <label
                           htmlFor="generate-2d"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -331,7 +332,7 @@ export default function MoleculeConverter() {
                         </label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Checkbox id="partial-charge" checked={partialCharge} onCheckedChange={setPartialCharge} />
+                        <Checkbox id="partial-charge" checked={partialCharge} onCheckedChange={setPartialCharge} className="bg-gray-300"/>
                         <label
                           htmlFor="partial-charge"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
