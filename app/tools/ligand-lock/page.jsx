@@ -205,11 +205,11 @@ export default function LigandLock() {
                         <div
                           className={cn(
                             "w-5 h-4 rounded-sm border border-[#006F7F] flex items-center justify-center cursor-pointer file-radio",
-                            file.selected ? "selected" : "",
+                            file.selected ? "selected bg-[#006F7F]" : "",
                           )}
                           onClick={() => toggleFileSelection(file.id, "protine")}
                         >
-                          {file.selected && <Check className="h-3 w-3 text-green-800" />}
+                          {file.selected && <Check className="h-3 w-3 text-white" />}
                         </div>
                         <span className="ml-2 text-sm">{file.name}</span>
                       </div>
@@ -343,8 +343,8 @@ export default function LigandLock() {
                     >
                       <div
                         className={cn(
-                          "w-5 h-4 rounded-sm border border-[#006F7F] flex items-center justify-center cursor-pointer file-radio",
-                          file.selected ? "selected" : "",
+                          "w-5 h-4 rounded-sm border border-[#006F7F]  flex items-center justify-center cursor-pointer file-radio",
+                          file.selected ? "bg-[#006F7F] selected" : "",
                         )}
                         onClick={() => toggleFileSelection(file.id, "ligand")}
                       >
@@ -388,7 +388,7 @@ export default function LigandLock() {
                       <div
                         className={cn(
                           "w-5 h-4 rounded-sm border border-[#006F7F] flex items-center justify-center cursor-pointer file-radio",
-                          file.selected ? "selected" : "",
+                          file.selected ? "selected bg-[#006F7F]" : "",
                         )}
                         onClick={() => toggleFileSelection(file.id, "docking")}
                       >
@@ -540,9 +540,9 @@ export default function LigandLock() {
                   <div className="h-full bg-[#e6f7fc]/30 rounded-lg border-2 border-[#e6f7fc] flex items-center justify-center">
                     <div className="text-center">
                       <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sBFMDsKs2DddXRPMFdqv6wTVUF5QPc.png"
+                        src="/protein.gif"
                         alt="DNA icon"
-                        className="mx-auto mb-4 h-16 w-16"
+                        className="mx-auto mb-4 h-24 w-24"
                       />
                       <p className="text-lg text-gray-600">
                         No data available yet. Upload a file and click Analyze to view your results here.
@@ -562,7 +562,7 @@ export default function LigandLock() {
                       <h3 className="text-xl font-medium text-[#006F7F] mb-4">Visualaizer</h3>
                       <div className="h-[calc(100%-2rem)] flex items-center justify-center">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-N2eoiu0ulP913CaflawuP5e490RUGR.png"
+                          src="/protein.gif"
                           alt="Protein visualization"
                           className="max-w-full max-h-full"
                         />
@@ -616,7 +616,7 @@ export default function LigandLock() {
                   <div className="h-full bg-[#e6f7fc]/30 rounded-lg border-2 border-[#e6f7fc] flex items-center justify-center">
                     <div className="text-center">
                       <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-04-24%20at%2011.08.39_5481afa2.jpg-nZCsuQlnrQqAuA7OrBVkIKalkVwVxD.jpeg"
+                        src="/protein.gif"
                         alt="DNA icon"
                         className="mx-auto mb-4 h-16 w-16"
                       />
@@ -690,7 +690,7 @@ export default function LigandLock() {
                         </div>
                         <div className="flex-1 flex items-center justify-center">
                           <img
-                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Result-1-OoKIFslut4LUqAYXDMSdEuAVJBVanH.png"
+                            src="/protein.gif"
                             alt="Protein structure visualization"
                             className="max-w-full max-h-full object-contain"
                           />
@@ -727,7 +727,7 @@ export default function LigandLock() {
                     <div className="h-full bg-[#e6f7fc]/30 rounded-lg border-2 border-[#e6f7fc] flex items-center justify-center">
                       <div className="text-center">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sBFMDsKs2DddXRPMFdqv6wTVUF5QPc.png"
+                          src="/protein.gif"
                           alt="DNA icon"
                           className="mx-auto mb-4 h-16 w-16"
                         />
@@ -748,7 +748,7 @@ export default function LigandLock() {
                   <div className="h-full bg-[#e6f7fc]/30 rounded-lg border-2 border-[#e6f7fc] flex items-center justify-center">
                     <div className="text-center">
                       <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-04-25%20at%2009.47.28_a614184b.jpg-VV3wLtcHBRMCYcuLdiyefcDL6nlmDu.jpeg"
+                        src="/protein.gif"
                         alt="DNA icon"
                         className="mx-auto mb-4 h-16 w-16"
                       />
@@ -800,6 +800,8 @@ export default function LigandLock() {
             >
               <X className="h-5 w-5" />
             </button>
+
+            
 
             <div className="grid grid-cols-2 gap-8 p-6">
               <div>
