@@ -184,14 +184,8 @@ const handleNewJob = async () => {
       viewportRef.current.__ngl_resize_handler = handleResize;
     }
 
-    // Cleanup when viewer is closed OR component unmounts
     return () => {
-      // Check if stage exists before trying cleanup
       if (stageRef.current) {
-          // Only dispose if the viewer is explicitly closing or the component is unmounting fully.
-          // We don't want to dispose just because isViewerOpen flipped briefly during a state update.
-          // The check inside the first `if` block (`isViewerOpen && ...`) handles initial creation.
-          // This cleanup runs when the component unmounts OR when isViewerOpen becomes false.
           if (!isViewerOpen) {
              console.log("Disposing NGL Stage because viewer closed or component unmounting");
              const handleResize = viewportRef.current?.__ngl_resize_handler;
@@ -1053,15 +1047,7 @@ const handleNewJob = async () => {
                             ) : (
                                 <p className="text-sm text-gray-600">{ligandFiles.filter(f => f.selected).length} ligand(s) selected. Ready for preparation.</p>
                             )}
-                            {/* Optionally list prepared ligands here if not solely in resultsFiles */}
-                            {/* {resultsFiles.filter(f => f.name.startsWith("Prepared_")).length > 0 && (
-                                <div className="mt-4">
-                                    <h3 className="text-md font-medium text-gray-700 mb-2">Prepared Ligands (Ready for Docking):</h3>
-                                    <ul className="list-disc list-inside text-sm text-gray-600">
-                                        {resultsFiles.map((file, index) => file.name.startsWith("Prepared_") && <li key={index}>{file.name}</li>)}
-                                    </ul>
-                                </div>
-                            )} */}
+                           
                              {ligandFiles.find(f => f.selected && f.fileObject) && (
                                  <Button
                                     variant="outline"
