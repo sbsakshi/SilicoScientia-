@@ -62,19 +62,29 @@ export default function PeptideGenerator() {
     })
   }
 
-    const addProperty = (category, property) => {
+  const addProperty = (category, property) => {
     if (!selectedProperties[category].includes(property)) {
       setSelectedProperties({
         ...selectedProperties,
         [category]: [...selectedProperties[category], property],
       })
+      setSliderValues(prev => ({
+        ...prev,
+        [property]: 0.5,
+      }))
     }
   }
 
+  // Remove property and its slider value
   const removeProperty = (category, property) => {
     setSelectedProperties({
       ...selectedProperties,
       [category]: selectedProperties[category].filter((p) => p !== property),
+    })
+    setSliderValues(prev => {
+      const updated = { ...prev }
+      delete updated[property]
+      return updated
     })
   }
 
@@ -96,6 +106,35 @@ export default function PeptideGenerator() {
       setTimeout(() => setShowSuccess(false), 3000)
     }, 2000)
   }
+
+  const renderDynamicSliders = (category) => (
+    selectedProperties[category].map(property => (
+      <div key={property} className="w-full mb-2">
+        <div className="flex items-center justify-between mt-2">
+          <label className="text-sm text-gray-600">{property} Target Value</label>
+        </div>
+        <div className="flex items-center">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value={sliderValues[property] ?? 0.5}
+            onChange={e => handleSliderChange(property, Number.parseFloat(e.target.value))}
+            className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
+            style={{
+              background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${(sliderValues[property] ?? 0.5) * 100}%, #d1d5db ${(sliderValues[property] ?? 0.5) * 100}%, #d1d5db 100%)`,
+            }}
+          />
+          <span className="ml-2 text-xs text-gray-700">{(sliderValues[property] ?? 0.5).toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between text-xs mt-1 text-gray-600">
+          <span>0.00</span>
+          <span>1.00</span>
+        </div>
+      </div>
+    ))
+  )
 
   return (
     <div
@@ -138,7 +177,7 @@ export default function PeptideGenerator() {
             <h2 className="text-2xl font-bold mb-6 text-gray-800">Property-Based Generation</h2>
 
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {/* Physical Properties Column */}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-gray-700">Physical</h3>
@@ -159,7 +198,6 @@ export default function PeptideGenerator() {
                         <label className="text-sm text-gray-600">Select Size Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -178,7 +216,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.size.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -189,6 +226,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
+                      {/* Dynamic sliders for size */}
+                      {renderDynamicSliders("size")}
                     </div>
                   )}
                 </div>
@@ -202,14 +241,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Hydrophobicity Properties</span>
                     {expandedSections.hydrophobicityProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.hydrophobicityProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Hydrophobicity Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -228,7 +265,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.hydrophobicity.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -239,6 +275,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
+                      {/* Dynamic sliders for hydrophobicity */}
+                      {renderDynamicSliders("hydrophobicity")}
                     </div>
                   )}
                 </div>
@@ -252,14 +290,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Flexibility Properties</span>
                     {expandedSections.flexibilityProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.flexibilityProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Flexibility Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -278,7 +314,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.flexibility.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -289,6 +324,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
+                      {/* Dynamic sliders for flexibility */}
+                      {renderDynamicSliders("flexibility")}
                     </div>
                   )}
                 </div>
@@ -307,14 +344,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Charge Properties</span>
                     {expandedSections.chargeProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.chargeProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Charge Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -333,13 +368,9 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
-                        {selectedProperties.charge.map((property) => (
-                          <div
-                            key={property}
-                            className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm"
-                          >
+                        {selectedProperties.charge.map(property => (
+                          <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
                             <span>{property}</span>
                             <button onClick={() => removeProperty("charge", property)} className="ml-1">
                               <X size={14} />
@@ -347,39 +378,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
-
-                      {selectedProperties.charge.includes("pI") && (
-                        <div className="mt-4">
-                          <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-600">pI Target Value</label>
-                            <Info size={16} className="text-gray-400" />
-                          </div>
-                          <div className="mt-2">
-                            <div className="relative pt-1">
-                              <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value={sliderValues.pITarget}
-                                onChange={(e) => handleSliderChange("pITarget", Number.parseFloat(e.target.value))}
-                                className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
-                                style={{
-                                  background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${sliderValues.pITarget * 100}%, #d1d5db ${sliderValues.pITarget * 100}%, #d1d5db 100%)`,
-                                }}
-                              />
-                              <div
-                                className="absolute w-4 h-4 bg-white border border-teal-500 rounded-full -mt-1.5"
-                                style={{ left: `calc(${sliderValues.pITarget * 100}% - 8px)`, top: "50%" }}
-                              />
-                            </div>
-                            <div className="flex justify-between text-xs mt-1 text-gray-600">
-                              <span>0.00</span>
-                              <span>1.00</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                      {/* Dynamic sliders for charge */}
+                      {renderDynamicSliders("charge")}
                     </div>
                   )}
                 </div>
@@ -393,14 +393,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Bonding Properties</span>
                     {expandedSections.bondingProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.bondingProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Bonding Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -419,7 +417,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.bonding.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -430,6 +427,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
+                      {/* Dynamic sliders for bonding */}
+                      {renderDynamicSliders("bonding")}
                     </div>
                   )}
                 </div>
@@ -443,14 +442,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Reactivity Properties</span>
                     {expandedSections.reactivityProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.reactivityProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Reactivity Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -469,7 +466,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.reactivity.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -480,6 +476,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
+                      {/* Dynamic sliders for reactivity */}
+                      {renderDynamicSliders("reactivity")}
                     </div>
                   )}
                 </div>
@@ -498,14 +496,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Secondary Properties</span>
                     {expandedSections.secondaryProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.secondaryProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Secondary Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -524,7 +520,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.secondary.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -535,72 +530,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
-
-                      {selectedProperties.secondary.includes("Sheet_Propensity") && (
-                        <div className="mt-4">
-                          <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-600">Sheet_Propensity Target Value</label>
-                            <Info size={16} className="text-gray-400" />
-                          </div>
-                          <div className="mt-2">
-                            <div className="relative pt-1">
-                              <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value={sliderValues.sheetTarget}
-                                onChange={(e) => handleSliderChange("sheetTarget", Number.parseFloat(e.target.value))}
-                                className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
-                                style={{
-                                  background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${sliderValues.sheetTarget * 100}%, #d1d5db ${sliderValues.sheetTarget * 100}%, #d1d5db 100%)`,
-                                }}
-                              />
-                              <div
-                                className="absolute w-4 h-4 bg-white border border-teal-500 rounded-full -mt-1.5"
-                                style={{ left: `calc(${sliderValues.sheetTarget * 100}% - 8px)`, top: "50%" }}
-                              />
-                            </div>
-                            <div className="flex justify-between text-xs mt-1 text-gray-600">
-                              <span>0.00</span>
-                              <span>1.00</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      
-                      {selectedProperties.secondary.includes("Turn_Propensity") && (
-                        <div className="mt-4">
-                          <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-600">Turn_Propensity Target Value</label>
-                            <Info size={16} className="text-gray-400" />
-                          </div>
-                          <div className="mt-2">
-                            <div className="relative pt-1">
-                              <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value={sliderValues.turnTarget}
-                                onChange={(e) => handleSliderChange("turnTarget", Number.parseFloat(e.target.value))}
-                                className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
-                                style={{
-                                  background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${sliderValues.turnTarget * 100}%, #d1d5db ${sliderValues.turnTarget * 100}%, #d1d5db 100%)`,
-                                }}
-                              />
-                              <div
-                                className="absolute w-4 h-4 bg-white border border-teal-500 rounded-full -mt-1.5"
-                                style={{ left: `calc(${sliderValues.turnTarget * 100}% - 8px)`, top: "50%" }}
-                              />
-                            </div>
-                            <div className="flex justify-between text-xs mt-1 text-gray-600">
-                              <span>0.00</span>
-                              <span>1.00</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                      {/* Dynamic sliders for secondary */}
+                      {renderDynamicSliders("secondary")}
                     </div>
                   )}
                 </div>
@@ -614,14 +545,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Stability Properties</span>
                     {expandedSections.stabilityProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.stabilityProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Stability Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -640,7 +569,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.stability.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -651,39 +579,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
-
-                      {selectedProperties.stability.includes("Instability_Index") && (
-                        <div className="mt-4">
-                          <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-600">Instability_Index Target Value</label>
-                            <Info size={16} className="text-gray-400" />
-                          </div>
-                          <div className="mt-2">
-                            <div className="relative pt-1">
-                              <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value={sliderValues.instabilityTarget}
-                                onChange={(e) => handleSliderChange("instabilityTarget", Number.parseFloat(e.target.value))}
-                                className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
-                                style={{
-                                  background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${sliderValues.instabilityTarget * 100}%, #d1d5db ${sliderValues.instabilityTarget * 100}%, #d1d5db 100%)`,
-                                }}
-                              />
-                              <div
-                                className="absolute w-4 h-4 bg-white border border-teal-500 rounded-full -mt-1.5"
-                                style={{ left: `calc(${sliderValues.instabilityTarget * 100}% - 8px)`, top: "50%" }}
-                              />
-                            </div>
-                            <div className="flex justify-between text-xs mt-1 text-gray-600">
-                              <span>0.00</span>
-                              <span>1.00</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                      {/* Dynamic sliders for stability */}
+                      {renderDynamicSliders("stability")}
                     </div>
                   )}
                 </div>
@@ -697,14 +594,12 @@ export default function PeptideGenerator() {
                     <span className="text-gray-700">Interactions Properties</span>
                     {expandedSections.interactionsProperties ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-
                   {expandedSections.interactionsProperties && (
                     <div className="mt-2">
                       <div className="flex items-center mt-2">
                         <label className="text-sm text-gray-600">Select Interactions Properties</label>
                         <Info size={16} className="ml-2 text-gray-400" />
                       </div>
-                      
                       <div className="flex items-center gap-2 mb-4">
                         <div className="relative flex-grow">
                           <select
@@ -723,7 +618,6 @@ export default function PeptideGenerator() {
                           />
                         </div>
                       </div>
-
                       <div className="flex flex-wrap gap-2 mt-2">
                         {selectedProperties.interactions.map(property => (
                           <div key={property} className="flex items-center bg-teal-500 text-white px-2 py-1 rounded text-sm">
@@ -734,39 +628,8 @@ export default function PeptideGenerator() {
                           </div>
                         ))}
                       </div>
-
-                      {selectedProperties.interactions.includes("Contact_Potential") && (
-                        <div className="mt-4">
-                          <div className="flex items-center justify-between">
-                            <label className="text-sm text-gray-600">Contact_Potential Target Value</label>
-                            <Info size={16} className="text-gray-400" />
-                          </div>
-                          <div className="mt-2">
-                            <div className="relative pt-1">
-                              <input
-                                type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
-                                value={sliderValues.contactTarget}
-                                onChange={(e) => handleSliderChange("contactTarget", Number.parseFloat(e.target.value))}
-                                className="w-full appearance-none bg-gray-300 h-1 rounded outline-none"
-                                style={{
-                                  background: `linear-gradient(to right, #0d9488 0%, #0d9488 ${sliderValues.contactTarget * 100}%, #d1d5db ${sliderValues.contactTarget * 100}%, #d1d5db 100%)`,
-                                }}
-                              />
-                              <div
-                                className="absolute w-4 h-4 bg-white border border-teal-500 rounded-full -mt-1.5"
-                                style={{ left: `calc(${sliderValues.contactTarget * 100}% - 8px)`, top: "50%" }}
-                              />
-                            </div>
-                            <div className="flex justify-between text-xs mt-1 text-gray-600">
-                              <span>0.00</span>
-                              <span>1.00</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                      {/* Dynamic sliders for interactions */}
+                      {renderDynamicSliders("interactions")}
                     </div>
                   )}
                 </div>
