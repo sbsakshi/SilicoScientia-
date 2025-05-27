@@ -1569,12 +1569,14 @@ export default function MolecularDynamicsTool() {
         {/* --- MDP Parameter Editor Dialog --- */}
         {/* Dialog remains outside of main */}
         <Dialog open={isMdpModalOpen} onOpenChange={setIsMdpModalOpen}>
-            <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto"> {/* Use DialogContent's internal centering */}
+            <DialogContent className="fixed top-[50%] left-[50%] z-[100] sm:max-w-[800px] max-h-[90vh] overflow-y-auto bg-white shadow-lg border rounded-lg transform -translate-x-1/2 -translate-y-1/2" style={{ left: '50%', top: '50%' }}>
                 <DialogHeader>
-                    <DialogTitle>{currentMdpStep ? currentMdpStep.replace('.mdp', '').toUpperCase() : 'Settings'} ({currentMdpStep})</DialogTitle>
+                    <DialogTitle className="text-lg font-semibold">
+                        {currentMdpStep ? currentMdpStep.replace('.mdp', '').toUpperCase() : 'Settings'} ({currentMdpStep})
+                    </DialogTitle>
                 </DialogHeader>
                 {currentMdpStep && (
-                    <div className="py-4">
+                    <div className="py-4 space-y-4">
                         {/* Basic vs Advanced Toggle */}
                         <div className="flex justify-end mb-4">
                             <Button
@@ -1587,20 +1589,28 @@ export default function MolecularDynamicsTool() {
                         </div>
 
                         {/* Render Parameter Form */}
-                        {renderMdpForm(currentMdpStep, configuredMdpSettings[currentMdpStep], showAdvancedMdp)}
-
+                        <div className="max-h-[60vh] overflow-y-auto pr-2">
+                            {renderMdpForm(currentMdpStep, configuredMdpSettings[currentMdpStep], showAdvancedMdp)}
+                        </div>
                     </div>
                 )}
 
-                <DialogFooter>
-                    <Button variant="outline" onClick={() => setIsMdpModalOpen(false)}>Close</Button>
-                    <Button onClick={() => setIsMdpModalOpen(false)}>Save Changes</Button>
+                <DialogFooter className="flex justify-end gap-2 pt-4 border-t">
+                    <Button variant="outline" onClick={() => setIsMdpModalOpen(false)}>
+                        Cancel
+                    </Button>
+                    <Button onClick={() => setIsMdpModalOpen(false)} className="bg-blue-600 hover:bg-blue-700">
+                        Save Changes
+                    </Button>
                 </DialogFooter>
-                {/* DialogClose component for the X button */}
-                 <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+                
+                <button
+                    className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                    onClick={() => setIsMdpModalOpen(false)}
+                >
                     <X className="h-4 w-4" />
                     <span className="sr-only">Close</span>
-                </DialogClose>
+                </button>
             </DialogContent>
         </Dialog>
         {/* --- End MDP Parameter Editor Dialog --- */}
