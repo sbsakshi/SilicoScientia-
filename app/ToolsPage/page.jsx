@@ -245,7 +245,7 @@ export default function SilicoXploreTools() {
 
       {/* Main Content */}
       <main className="flex-1 px-4 py-8 md:px-8 lg:px-16">
-        <div className="max-w-7xl mx-auto">
+        <div className=" mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-2">SilicoXplore Tools</h1>
@@ -408,7 +408,7 @@ export default function SilicoXploreTools() {
           </div>
 
           {/* Tool Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
             {displayedTools.length > 0 ? (
               displayedTools.map((tool) => (
                 <Card
