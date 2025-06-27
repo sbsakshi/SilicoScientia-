@@ -650,8 +650,7 @@ export default function LigandLock() {
                         <Download className="h-4 w-4 mr-2" /> Save Molecule
                       </Button>
                       <Button variant="outline" className="border-[#006F7F] text-[#006F7F]">
-                        <RefreshCw className="h-4 w-4 mr-2" /> Refresh
-                      </Button>
+v                      </Button>
                     </div>
                   </div>
                 )}
